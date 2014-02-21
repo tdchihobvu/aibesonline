@@ -1,0 +1,85 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="order-form">
+  <table id="new_table">
+  <tr>
+    <td><%= f.label :code %></td>
+    <td><%= f.text_field :code %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :name %></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :price %></td>
+    <td><%= f.text_field :price %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :delivery_price, 'Delivery Price' %></td>
+    <td><%= f.text_field :delivery_price %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :quantity %></td>
+    <td><%= f.number_field :quantity %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :description %></td>
+    <td><%= f.text_area :description, :cols => 30, :rows => 3 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :product_type_id, "Type" %></td>
+    <td><%= f.select :product_type_id, ProductType.find(:all).collect {|p| [p.name, p.id]}, "size" => 40 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :product_category_id, "Genre" %></td>
+    <td><%= f.select :product_category_id, ProductCategory.find(:all).collect {|p| [p.name, p.id]}, "size" => 40 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :product_brand_id, "Brand" %></td>
+    <td><%= f.select :product_brand_id, ProductBrand.find(:all).collect {|p| [p.name, p.id]}, "size" => 40 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :on_promotion %></td>
+    <td><%= f.check_box :on_promotion %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :unit_vat %></td>
+    <td><%= f.text_field :unit_vat %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :latest %></td>
+    <td><%= f.check_box :featured %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :top_10 %></td>
+    <td><%= f.check_box :top_10 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :special_available, 'Blue-Ray Available' %></td>
+    <td><%= f.check_box :special_available %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :release_year %></td>
+    <td><%= f.text_field :release_year %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :upcoming %></td>
+    <td><%= f.check_box :upcoming %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.submit %></td>
+  </tr>
+  </table>
+<% end %>
+  </div>

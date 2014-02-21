@@ -1,0 +1,41 @@
+<div id="feature_store">
+<div id="store_view"></div>
+</div>
+<div class="clear"></div>
+<div class="category_items_header">
+  <span class="category_title">Movies Category >></span><span class="category_item"><%= @cat_name %> </span><span class="category_title"><%= pluralize(@count,'Available Movie') %> </span>
+</div>
+    <% @category_items.each_with_index do |f, i| %>
+        <% '< class="students-on-one-line">' if i%6 == 0 %>
+        <div id="featured_result">
+          <% if File.exists?("public#{f.image_url}") %>
+          <div class="image"><img src="<%=h f.image_url %>" width="130px" height="130px" /></div>
+          <% else %>
+          <div class="image"><img src="<%= "assets/default.png" %>" width="130px" height="130px" /></div>
+          <% end %>
+          <div class="movie_name"><%=h f.name %></div>
+
+          <div class="release-year">
+              Normal Price <b><%= number_to_currency(f.price)%></b><br/>
+              Price + Delivery <b><%= number_to_currency(f.delivery_price) %></b>
+          </div>
+          <% if f.special_available? %>
+          <div class="release-year"><b>Blu-Ray</b> Available</div>
+          <% else %>
+          <div class="release-year"><%= "--" %></div>
+          <% end %>
+          <div class="cart_button">
+            <%= form_tag({:action => 'add_to_cart', :id => f}, :remote => true) do %>
+              <%= submit_tag "Add to Cart" %>
+            <% end %>
+          </div>
+        </div>
+        <%= '' if i%4 == 3 %>
+      <% end %>
+
+<div class="clear"></div>
+
+
+    
+
+

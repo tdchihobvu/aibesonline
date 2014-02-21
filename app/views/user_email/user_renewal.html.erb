@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <%= "Hi #{@user.name}" %><br/><br/>
+    <% site_url = GlobalSetting.find_by_config_key("SiteURL") %>
+    <%= "You have requested for an Account Renewal or Password Reset, please follow the link below to reset your password and renew your account. " %><br/><br/>
+    Copy & Paste to your browser if the link below is not clickable:<br/>
+    <%= "#{site_url.config_value}/store/edit_user_account?id=#{@user.reset_password_token}" %>
+
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <%= csrf_meta_tag %>
+  <title><%= 'Showtime Home Video Online Store' %></title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag 'js-image-slider' %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' %>
+  <%= javascript_include_tag 'rails' %>
+  <%= javascript_include_tag 'js-image-slider' %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="background:#B0B7BC;background-image: url('assets/background.jpg');background-attachment: fixed; margin: 0 auto">
+  <div id="bannerwd">
+    <div id="banner">
+      <div id ="menu_categories" >
+          <%= render(:partial => "menu_categories" , :object => @menu_categories) %>
+      </div>
+    </div>
+  </div>
+  
+  <div id="main">
+       <div id="sidebar">
+        <% unless session[:user_id].nil? %>
+         <% user = User.find(session[:user_id]) %>
+           <div class="empty_cart"> Logged in as <%= user.name %> </div>
+        <div id="user_area">
+          <%=link_to '► Sign Out', :action => 'logout' %>
+        </div>
+        <% else %>
+          <div class="empty_cart"> Customer Area </div>
+        <div id="user_area">
+          <%=link_to '► Sign in', :action => 'sign_in' %> <%=link_to "Create Account", :action => 'new_user' %>
+        </div>
+        <% end %>
+        <div id ="cart" >
+          <%= render(:partial => "cart" , :object => @cart) %>
+        </div>
+        <div id="side_content">
+        <%= render(:partial => "slideshow") %>
+        <%= render(:partial => "side_links") %>
+        </div>
+        <%= render(:partial => 'upcoming_movies', :object => @upcoming_movies) %>
+      </div>
+
+      <div id="content">
+        <% unless flash[:notice].nil? %>
+          <div class="flash_msg"><%= flash[:notice] %></div>
+        <% end %>
+          <%= yield %>
+      </div>
+  </div>
+  <div id="footer">
+       <%= render(:partial => 'layouts/footer') %>
+  </div>
+</body>
+
+</html>
+
+
+

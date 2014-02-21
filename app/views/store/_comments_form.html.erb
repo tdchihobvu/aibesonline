@@ -1,0 +1,25 @@
+<br/>
+<div class="category_items_header">
+  <span class="category_title">To send your comment. Fill in details in the form below.<span style="float:right"><%=link_to "Close", :action => 'index' %></span></span>
+</div>
+
+<div id="saving_order"></div>
+
+<div class="order-form">
+<%= form_tag( { :action => :save_comment, }, { :method => :post }) %>
+<table id="new_table">
+  <tr>
+    <td><%= "Customer Name" %></td>
+    <td><%= text_field "comment","username", "size" => 40 %></td>
+  </tr>
+  <tr>
+    <td><%= "Comment" %><br/><span class="desc">Enter your comment.</span></td>
+    <td><%= text_area "comment","message", :cols => 40, :rows => 2 %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= submit_tag "Send Comment", :class => "submit" %></td>
+  </tr>
+
+</table>
+</div>

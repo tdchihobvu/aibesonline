@@ -1,0 +1,5 @@
+<div class="products_atoz">
+  <% @categories.each do |cat| %>
+  <%=link_to cat.name, :action => 'category_products', :id => cat.id, :remote => true %>
+  <% end %>
+</div>

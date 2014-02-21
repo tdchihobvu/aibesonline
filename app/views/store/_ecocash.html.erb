@@ -1,0 +1,42 @@
+<% config = GlobalSetting.find_by_config_key("EcocashMobile") %>
+   <% registered_to = GlobalSetting.find_by_config_key("EcocashMobileOwner") %>
+    <% business = GlobalSetting.find_by_config_key("BusinessName") %>
+    <% address1 = GlobalSetting.find_by_config_key("AddressLine1") %>
+    <% address2 = GlobalSetting.find_by_config_key("AddressLine2") %>
+    <% city = GlobalSetting.find_by_config_key("City") %>
+    <% contact = GlobalSetting.find_by_config_key("PhoneNumber") %>
+    <% email = GlobalSetting.find_by_config_key("BusinessEmail") %>
+<h3>You are making your payment using Ecocash</h3>
+<p>Perform the Transaction on your mobile</p>
+<ul>
+  <li>Dial <b>*151#</b> (The new Ecocash short code)</li>
+  <li>Enter your <b>Pin Number</b></li>
+  <li>Select Option 4 <b>Sent Money</b></li>
+  <li>Select Option  <b>Send to Registered Customer</b></li>
+  <li>Enter Subscriber Number  <b><%= config.config_value %></b></li>
+  <li><b>Enter Amount</b>
+    <ul>
+      <li>If you Opted for Collection enter amount  <b><%= number_to_currency(@cart.total_price) %></b></li>
+      <li>If you Opted for Delivery enter amount  <b><%= number_to_currency(@cart.total_delivery_price) %></b></li>
+    </ul>
+  </li>
+  <li>Confirm to sent money to <b><%= registered_to.config_value %></b> > <b>Yes</b> to complete transaction. Otherwise <b>No</b></li>
+  <li>Click the button <b>Place Order</b> to submit your order. </li>
+</ul>
+
+<div><%= submit_tag "Place Order", :class => "submit" %></div>
+<p>
+  <b>Please Note</b>: Your order will only be processed when your payment has been received & confirmed. Keep the
+  Ecocash confirmation message for verification. We will send you a message or call to confirm your order.
+</p>
+
+<b>Visit or Contact Us:</b>
+<p style="text-align: left">
+  <%=h business.config_value %><br/>
+  <%=h address1.config_value %><br/>
+  <%=h address2.config_value %><br/>
+  <%=h city.config_value %><br/>
+  Email : <%=h email.config_value %><br/>
+
+
+</p>

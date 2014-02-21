@@ -1,0 +1,15 @@
+ <div class="category_items_header">
+  <span class="category_title">Enter the Activation Code to activate your account</span>
+</div>
+ <%= form_tag( { :action => :activate,:id => params[:id] }, { :method => :post }) %>
+  <table style="padding: 10px; width:65%">
+
+  <tr>
+    <td>Enter Account Activation Code <br/><div style="font-size: 9px">Copy code from your email</div></td>
+    <td>
+      <%= password_field_tag :random_pass, params[:random_pass], :size => '15', :class => 'login_field' %>
+
+    </td>
+    <td><%= submit_tag "Activate Now" %></td>
+  </tr>
+</table>

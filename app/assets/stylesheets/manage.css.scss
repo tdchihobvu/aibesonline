@@ -1,0 +1,34 @@
+// Place all the styles related to the manage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*Store Management Styles*/
+
+#store_admin {
+    padding: 5px;
+}
+#store_admin h2 {
+    font-size: 12px;
+}
+#store_admin h3 {
+    font-size: 11px;
+    background: #FF9900;
+    font-weight: normal;
+    padding: 4px;
+}
+#store_admin .orders_lookup {
+    background: none;
+    padding: 0px;
+}
+
+#store_admin .orders_lookup a {
+    background: #FF9900;
+    padding: 3px 5px;
+    font-size: 10px;
+    text-decoration: none;
+    border: 1px #826608 solid;
+}
+
+#store_admin .orders_lookup a:hover {
+    background: #454647;
+}

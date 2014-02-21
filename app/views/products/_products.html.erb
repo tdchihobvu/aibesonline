@@ -1,0 +1,31 @@
+<div class="category_items_header">
+  <span class="category_title">Movies Category >></span><span class="category_item"><%= @cat_name %> </span><span class="category_title"><%= pluralize(@count,'Available Movie') %> </span>
+</div>
+<table id="class-timings-list">
+ <tr class="tr-head">
+    <th>Code</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Genre</th>
+    <th>Sales</th>
+    <th>Views</th>
+    <th>On promotion</th>
+    <th>Featured</th>
+  </tr>
+
+<% for product in @products %>
+  <tr class="tr-<%= cycle('even', 'odd') %>">
+    <td><%=h product.code %></td>
+    <td><%=link_to product.name, product %></td>
+    <td><%=h number_to_currency(product.price) %></td>
+    <td><%=h product.quantity %></td>
+    <td><%=h product.product_category.name %></td>
+    <td><%=h product.number_of_sales %></td>
+    <td><%=h product.views %></td>
+    <td><%=h product.on_promotion %></td>
+    <td><%=h product.featured %></td>
+    <td><%=link_to 'Edit', product %></td>
+  </tr>
+<% end %>
+</table>

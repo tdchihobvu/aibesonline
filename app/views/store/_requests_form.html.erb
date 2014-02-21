@@ -1,0 +1,34 @@
+<br/>
+<div class="category_items_header">
+  <span class="category_title">To send your request. Fill in details in the form below.<span style="float:right"><%=link_to "Close", :action => 'index' %></span></span>
+</div>
+<p style="background:#FFB2AB; padding: 5px; font-size: 11px; text-align: center ">We respect your privacy. The information you provide here will only be used for the processing of your request.</p>
+
+<div id="saving_order"></div>
+
+<div class="order-form">
+<%= form_tag( { :action => :save_request, }, { :method => :post }) %>
+<table id="new_table">
+  <tr>
+    <td><%= "Customer Name" %></td>
+    <td><%= text_field "customer_request","username", "size" => 40 %></td>
+  </tr>
+  <tr>
+    <td><%= "Movie Request" %><br/><span class="desc">Enter the name of the movie.</span></td>
+    <td><%= text_field "customer_request","message", "size" => 40 %></td>
+  </tr>
+  <tr>
+    <td><%= "Mobile Number" %></td>
+    <td><%= text_field "customer_request", "mobile_no", "size" => 40 %></td>
+  </tr>
+  <tr>
+    <td><%=  "Notify Me" %><br/><span class="desc">You will be notified when your request is met <br/> on the phone number you provide above.</span></td>
+    <td><%= check_box "customer_request", "notify_me" %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= submit_tag "Send Request", :class => "submit" %></td>
+  </tr>
+
+</table>
+</div>

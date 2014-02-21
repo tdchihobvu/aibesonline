@@ -1,0 +1,22 @@
+ <%= form_tag( { :action => :login, }, { :method => :post }) %>
+  <table style="padding: 10px;width:100%" cellspacing="10">
+  <tr>
+
+    <td>
+      <label>Mobile Number</label> <br/>
+      <%= text_field_tag :mobile_number, params[:mobile_number], :size => '40', :class => 'login_field' %>
+    </td>
+    <td rowspan="4" valign="top"></td>
+  </tr>
+  <tr>
+    <td>
+      <label>Access Code</label><br/>
+      <%= password_field_tag :random_pass, params[:random_pass], :size => '40', :class => 'login_field' %>
+
+    </td>
+
+  </tr>
+  <tr>
+    <td><%= submit_tag "Sign in" %></td>
+  </tr>
+</table>

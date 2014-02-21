@@ -1,0 +1,5 @@
+<% if @products.nil? %>
+<div class="flash_msg">No movies found matching the search criteria!</div>
+<% else %>
+<%= render 'products' %>
+<% end %>

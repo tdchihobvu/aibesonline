@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <%= "This email has been sent from Showtime website, see your access code below:" %><br/><br/>
+    <table>
+      <tr>
+        <td>Account Activation Code (You will need this code for account activation)</td>
+        <td>: <%= @user.random_pass %></td>
+      </tr>
+    </table>
+    <% site_url = GlobalSetting.find_by_config_key("SiteURL") %>
+    Click on the link below to activate your account:
+    <%= "#{site_url.config_value}/store/activate_account?id=#{@user.phone_number}" %>
+
+  </body>
+</html>

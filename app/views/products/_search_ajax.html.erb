@@ -1,0 +1,9 @@
+<% if @products.nil? %>
+<div class="flash_msg">No movies found matching the search criteria!</div>
+<% else %>
+<p class="flash_msg"><%= pluralize(@search_count, "movie") %> found, meeting the criteria.</p>
+<%= render 'products' %>
+<div class="clear"></div>
+
+
+<% end %>

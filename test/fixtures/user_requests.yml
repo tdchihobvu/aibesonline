@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  username: MyString
+  message: MyText
+  publish: false
+  notify_me: false
+  mobile_no: MyString
+
+two:
+  username: MyString
+  message: MyText
+  publish: false
+  notify_me: false
+  mobile_no: MyString

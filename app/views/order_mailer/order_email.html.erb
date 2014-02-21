@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <%= "This email has been sent from Showtime website, notifying you of the order that has been made by #{@order.customer_name.upcase}" %><br/><br/>
+    <span style="background-color: #DCEEF7; padding: 2px"><%=h "Order Number : #{@order.order_no}" %></span><br/>
+    <span style="background-color: #DCEEF7; padding: 2px"><%=h "Customer Name : #{@order.customer_name.upcase}" %></span><br/>
+      <span style="background-color: #DCEEF7; padding: 2px"><%=h "Customer Mobile : #{@order.mobile_no}" %></span><br/>
+      <span style="background-color: #DCEEF7; padding: 2px"><%=h "Order Posted at : #{Time.now.strftime("%H:%M:%S")}" %></span><br/>
+    <span style="background-color: #DCEEF7; padding: 2px"><%=h "Order Status : #{@order.order_status}" %></span><br/>
+    <% if @order.delivery? %>
+    <span style="background-color: #DCEEF7; padding: 2px"><%=h "Address : #{@order.address_line1.capitalize}" %></span><br/>
+    <span style="background-color: #DCEEF7; padding: 2px"><%=h "Location : #{@order.address_line2.capitalize}" %></span><br/>
+    <% end %>
+    <br/>
+<% if @order.delivery? %>
+    <table width="70%" cellpadding="15" cellspacing="10">
+   <% order_total = 0 %>
+<% for li in @order.line_items %>
+  <tr class="tr-<%= cycle('odd', 'even') %>">
+    <td><%= li.quantity  %> &times;</td>
+    <td>(<%= li.product.code %>) <%= li.product.name  %></td>
+    <td><%= number_to_currency(li.total_delivery_price)  %></td>
+    <% order_total += li.total_delivery_price %>
+  </tr>
+<% end %>
+   <tr  style="background-color: #DCEEF7; padding: 2px">
+    <td></td>
+    <td>Total</td>
+    <td><b><%= number_to_currency(order_total) %></b></td>
+  </tr>
+</table>
+    <% else %>
+<table width="70%" cellpadding="10" cellspacing="5">
+   <% order_total = 0 %>
+<% for li in @order.line_items %>
+  <tr class="tr-<%= cycle('odd', 'even') %>">
+    <td><%= li.quantity  %> &times;</td>
+    <td>(<%= li.product.code %>) <%= li.product.name  %></td>
+    <td><%= number_to_currency(li.total_price)  %></td>
+    <% order_total += li.total_price %>
+  </tr>
+<% end %>
+    <tr  style="background-color: #DCEEF7; padding: 2px">
+    <td></td>
+    <td>Total</td>
+    <td><b><%= number_to_currency(order_total) %></b></td>
+  </tr>
+</table>
+    <% end %>
+  </body>
+</html>

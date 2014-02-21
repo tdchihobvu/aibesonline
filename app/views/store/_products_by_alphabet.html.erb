@@ -1,0 +1,63 @@
+<div id="feature_store">
+<div id="store_view"></div>
+</div>
+<div class="clear"></div>
+<div class="category_items_header">
+  <span class="category_title">Movies Category >></span><span class="category_item"><%= @cat_name %> </span><span class="category_title"><%= pluralize(@count,'Available Movie') %> </span>
+</div>
+<table id="class-timings-list">
+  <tr class="tr-head">
+    <td>Name</td>
+    <td>Description</td>
+    <td>Normal Price</td>
+    <td>Delivery Price</td>
+    <td>Year</td>
+  </tr>
+  <% for p in @products_by_alphabet  %>
+  <tr class="tr-<%= cycle('odd', 'even') %>">
+    <td>
+      <a href="#" class="tooltip"><b><%= p.name %></b>
+        <span>
+        <strong><%= p.name %></strong><br/>
+        <%= p.description %>
+        </span>
+      </a>
+    </td>
+    <td>
+      <a href="#" class="tooltip"> <%= truncate(p.description.gsub(/<.*?>/,''), :length => 80) %>
+        <span>
+        <strong><%= p.name %></strong><br/>
+        <%= p.description %>
+        </span>
+      </a>
+    </td>
+    <td><%= number_to_currency(p.price) %></td>
+    <td><%= number_to_currency(p.delivery_price) %></td>
+    <td><%= p.release_year %></td>
+    <td>
+            <%= form_tag({:action => 'add_to_cart', :id => p}, :remote => true) do %>
+              <%= submit_tag "Buy Now" %>
+            <% end %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+
+
+
+
+<div class="clear"></div>
+
+
+          <%#= observe_fields ['query'],
+         :frequency => 0.1,
+         :update => 'store_view',
+         :before => "Element.show('loader')",
+         :success => "Element.hide('loader')",
+         :url => {:action => 'search_ajax'} %>
+    <%#*<div class="extender"></div>%>
+
+
+
+

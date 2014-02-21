@@ -1,0 +1,12 @@
+<% no = published_comments.count %>
+<div class="empty_cart"><%=h "#{no} Comments" %></div>
+<% published_comments.each do |c| %>
+  <div class="blockquote">
+    <h2><%=h c.username.capitalize %></h2>
+    <h3><%=h c.updated_at.strftime("%d %B %Y") %></h3>
+    <p>
+      <%=h c.message.downcase %>
+    </p>
+    
+  </div>
+<% end %>

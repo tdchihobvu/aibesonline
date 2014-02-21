@@ -1,0 +1,24 @@
+
+<table>
+  <%= form_tag( { :action => :update_settings, }, { :method => :post }) %>
+  <tr>
+    <td>Slideshow Image 1</td>
+    <td><%= text_field "global_setting", "slide1_url", :value => @config[:slide1_url] %></td>
+  </tr>
+  <tr>
+    <td>Slideshow Image 2</td>
+    <td><%= text_field "global_setting", "slide2_url", :value => @config[:slide2_url] %></td>
+  </tr>
+  <tr>
+    <td>Slideshow Image 3</td>
+    <td><%= text_field "global_setting", "slide3_url", :value => @config[:slide3_url] %></td>
+  </tr>
+  <tr>
+    <td>Slideshow Image 4</td>
+    <td><%= text_field "global_setting", "slide4_url", :value => @config[:slide4_url] %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= submit_tag "Update" %></td>
+  </tr>
+</table>

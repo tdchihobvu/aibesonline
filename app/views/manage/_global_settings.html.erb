@@ -1,0 +1,27 @@
+<div class="category_items_header">
+  <span class="category_title">Global Settings</span>
+</div>
+<p></p>
+
+
+<%= render 'slideshow_images' %>
+<%  @images = Dir.glob("public/slideshow/*.jpg") %>
+<% unless @images.empty? %>
+<table id="class-timings-list">
+  <tr class="tr-head">
+    <th>Uploaded Slideshow Images (.jpg)</th>
+  </tr>
+  <% @images.each_with_index do |image,i| %>
+  <tr class="tr-<%= cycle('odd', 'even') %>">
+    <td><%= "slideshow/#{image.split('/').last}" %></td>
+    <td><%=link_to "Set to Slideshow",:action => 'update_slide_image', :path => "slideshow/#{image.split('/').last}", :id => i %></td>
+    <td><%=link_to "Delete", :action => 'delete_slide_image', :path => "slideshow/#{image.split('/').last}" %></td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<p class="flash_msg">There are no slideshow images uploaded. Upload 4 Images for the slide.</p>
+<% end %>
+
+   
+ 

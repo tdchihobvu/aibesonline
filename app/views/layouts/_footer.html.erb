@@ -1,0 +1,30 @@
+<% name = GlobalSetting.find_by_config_key("BusinessName")  %>
+<% add1 = GlobalSetting.find_by_config_key("AddressLine1")  %>
+<% add2 = GlobalSetting.find_by_config_key("AddressLine2")  %>
+<% city = GlobalSetting.find_by_config_key("City")  %>
+ <% fb = GlobalSetting.find_by_config_key("fb")%>
+ <% tw = GlobalSetting.find_by_config_key("tw")%>
+ <% yt = GlobalSetting.find_by_config_key("yt")%>
+ <% gp = GlobalSetting.find_by_config_key("gp")%>
+<table width="100%">
+  <tr class="tr-foot">
+  <td>
+    Follow Us On
+  </td>
+  <td>
+    <a href="<%= fb.config_value %>" target = '_blank'><%= image_tag 'social_networks/facebook-icon.png' %></a>
+  </td>
+  <td>
+    <a href="<%= tw.config_value %>" target = '_blank'><%= image_tag 'social_networks/twitter-icon.png' %></a>
+  </td>
+  <td>
+    <a href="<%= yt.config_value %>" target = '_blank'><%= image_tag 'social_networks/youtube-icon.png' %></a>
+  </td>
+  <td>
+    <a href="<%= gp.config_value %>" target = '_blank'><%= image_tag 'social_networks/gplus-icon.png' %></a>
+  </td>
+  <td>
+    Copyright 2014 AibesOnlineStores | Showtime OnlineStore Developed By <a href="http://www.dapsoft.co.zw"  target = '_blank'>Dapsoft Solutions Pbc</a>
+  </td>
+  </tr>
+</table>

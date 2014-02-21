@@ -1,0 +1,29 @@
+ <div class="category_items_header">
+  <span class="category_title">Create New Access Code</span>
+</div>
+ <%= form_tag( { :action => :save_new_access_code, :id => params[:id] }, { :method => :post }) %>
+<table style="padding: 10px; width:75%" cellspacing="10">
+
+  <tr>
+    <td>Current Access Code (<i>Check your Email</i>)</td>
+    <td>
+      <%= text_field_tag :current_random_pass, params[:current_random_pass], :size => '15', :class => 'login_field' %>
+    </td>
+  </tr>
+  <tr>
+    <td>Enter Your New Access Code</td>
+    <td>
+      <%= password_field_tag :new_random_pass, params[:new_random_pass], :size => '15', :class => 'login_field' %>
+    </td>
+  </tr>
+  <tr>
+    <td>Confirm Your New Access Code</td>
+    <td>
+      <%= password_field_tag :confirm_random_pass, params[:confirm_random_pass], :size => '15', :class => 'login_field' %>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= submit_tag "Submit" %></td>
+  </tr>
+</table>

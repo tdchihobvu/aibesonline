@@ -1,0 +1,32 @@
+<div class="category_items_header">
+  <span class="category_title">Products</span>
+  <span style="float: right">
+    <%= link_to 'New Product', new_product_path %> |
+    <%= link_to 'Back', products_path %>
+  </span>
+</div>
+<div class="header">
+  <div class="store-menu">
+<div class="orders_lookup">
+    <%= form_tag({:action => 'search_ajax', :query => params['query']}, :remote => true, :style => 'display:inline' ) do %>
+        <%= text_field_tag("query", params['query'], :autocomplete => 'off', :size => '', :value => 'search movie', :onfocus=> "this.value='';") %>
+       <span class="search_button">
+          <%= submit_tag "Search" %>
+       </span>
+    <% end %>
+  <%=link_to "Top 10 Movies" %>
+  <%=link_to "Featured Movies" %>
+  <%=link_to "Movies by Genre", :action => 'products_by_category', :remote => true %>
+  <%=link_to "All Movies" %>
+  <%=link_to "All Series" %>
+</div>
+  </div>
+  <div id="testdiv"></div>
+</div>
+<br/>
+<div id="virtual_products">
+<%= render 'products' %>
+</div>
+
+
+

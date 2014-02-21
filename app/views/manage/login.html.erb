@@ -1,0 +1,39 @@
+<hr width="98%" style="border: 1px solid #EEEEEE" shade />
+<div id="login_form">
+  <div class="header">
+    Login
+  </div>
+<% form_tag do %>
+  <table style="padding: 10px;width:100%" cellspacing="10">
+  <tr>
+
+    <td>
+      <label>Username</label> <br/>
+      <%= text_field_tag :username, params[:username], :size => '40', :class => 'login_field' %>
+    </td>
+    <td rowspan="4" valign="top"></td>
+  </tr>
+  <tr>
+    <td>
+      <label>Password</label><br/>
+      <%= password_field_tag :password, params[:password], :size => '40', :class => 'login_field' %>
+
+    </td>
+
+  </tr>
+  <tr>
+    <td><%= submit_tag "Login" %></td>
+  </tr>
+  <tr>
+    <td>
+    <%= check_box_tag :password %> Remember Me
+    <% unless flash[:notice].nil? %>
+        <p class="flash_msg"><%= flash[:notice] %></p>
+    <% end %>
+    </td>
+  </tr>
+</table>
+<% end %>
+<br/><br/>
+</div>
+

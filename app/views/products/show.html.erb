@@ -1,0 +1,36 @@
+<div class="category_items_header">
+  <span class="category_title"><%=h @product.name %></span>
+  <span style="float: right">
+    <%= link_to 'Edit Product', edit_product_path(@product) %> |
+    <%= link_to 'Upload Image', :action => 'upload_image', :id => params[:id], :remote => true %> |
+    <%= link_to 'Back', products_path %>
+  </span>
+</div>
+<p></p>
+<div class="clear"></div>
+<div id="upload_form"></div>
+
+<div id="search_result">
+<div class="image">
+  <img src="<%=h @product.image_url %>" width="110px" height="120px" />
+</div>
+<div class="description">
+  <div class="name"><h3><%=h @product.name %></h3></div>
+  <div class="content_desc"><%=h truncate(@product.description.gsub(/<.*?>/,''),:length => 265)%></div>
+  <div class="movie_tags">
+
+    <span class="tag"><%= "#{pluralize(@product.number_of_sales, "like")} "%></span>
+    <span class="tag"><%= "#{pluralize(@product.number_of_sales, "view")} "%></span>
+ 
+    <div class="tags">
+      <span class="tag"><%= "Price #{number_to_currency(@product.price)}" %></span>
+      <span class="tag"><%= "Delivery Price #{number_to_currency(@product.delivery_price)}" %></span>
+      <span class="tag"><%= "Year #{@product.release_year}" %></span>
+      <span class="tag"><%= "#{pluralize(@product.number_of_sales, "copy")} sold  "%></span>
+    </div>
+  </div>
+</div>
+</div>
+
+
+

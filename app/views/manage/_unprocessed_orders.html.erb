@@ -1,0 +1,55 @@
+<% unless unprocessed_orders.empty? %>
+<table id="class-timings-list">
+ <tr class="tr-head">
+    <td>Order No.</td>
+    <td>Name</td>
+    <td>Mobile No.</td>
+    <td>Location</td>
+    <td>Payment</td>
+    <td align="center">Paid</td>
+    <td align="center">Processed</td>
+  </tr>
+  <% for order in unprocessed_orders %>
+    <tr class="tr-<%= cycle('even', 'odd') %>">
+      <td><b><%=h order.order_no %></b></td>
+      <td>
+
+      <a href="#" class="tooltip"><b><%=h order.customer_name %></b>
+        <span>
+        <strong>Order : <%= order.order_no %></strong> (<%=h order.customer_name %>)<br/>
+        <% @items = order.line_items  %>
+        <table id="" width="100%">
+          <% total_order = 0 %>
+          <% for i in @items %>
+          <tr>
+            <td><%=h i.quantity %> &times;</td>
+            <td><%=h i.product.name %></td>
+            <td><%=h number_to_currency(i.total_price) %></td>
+          </tr>
+          <% total_order += i.total_price %>
+          <% end %>
+          <tr>
+            <td>Total</td>
+            <td></td>
+            <td><strong><%=h number_to_currency(total_order) %></strong></td>
+          </tr>
+        </table>
+        </span>
+      </a>
+      </td>
+      <td><%=h order.mobile_no %></td>
+      <td><%=h order.address_line2 %></td>
+      <td><%=h order.payment_gateway.name %></td>
+      <td align="center"><b><%= order.paid_status %></b></td>
+      <td align="center"><b><%= order.processed_status %></b></td>
+      <td align="center">
+          <%= form_tag({:action => 'process_payment', :id => order}, :remote => true) do %>
+              <%= submit_tag "Process Payment" %>
+            <% end %>
+    </td>
+    </tr>
+    <% end %>
+  </table>
+  <% else %>
+<div class="flash_msg">There are no Orders pending processing</div>
+  <% end %>

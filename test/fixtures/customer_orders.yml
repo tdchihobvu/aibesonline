@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order_no: MyString
+  customer_name: MyString
+  address_line1: MyString
+  address_line2: MyString
+  city: MyString
+  mobile_no: MyString
+  email: MyString
+  payment_gateway_id: 1
+  delivery: false
+  paid: false
+  processed: false
+  collected: false
+
+two:
+  order_no: MyString
+  customer_name: MyString
+  address_line1: MyString
+  address_line2: MyString
+  city: MyString
+  mobile_no: MyString
+  email: MyString
+  payment_gateway_id: 1
+  delivery: false
+  paid: false
+  processed: false
+  collected: false

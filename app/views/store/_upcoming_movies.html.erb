@@ -1,0 +1,13 @@
+<div class="empty_cart">Upcoming Movies </div>
+<div id="sidelinks" style="text-align: center">
+<% for u in @upcoming_movies %>
+  <% if File.exists?("public#{u.image_url}") %>
+          <div class="image"><img src="<%=h u.image_url %>" width="215px" height="150px" /></div>
+          <% else %>
+          <div class="image"><img src="<%= "assets/default.png" %>" width="215px" height="150px" /></div>
+          <% end %>
+          <div style="font-size: 10px; font-weight: bold; color: #8185F8; background: #F0F0F0; padding: 2px 3px; margin-bottom: 10px">
+                  <%= u.name  %>
+          </div>
+<% end %>
+</div>

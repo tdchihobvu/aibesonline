@@ -1,0 +1,4 @@
+<%= link_to "Home", :controller => 'store' %>
+<% for menu in @menu_categories %>
+  <%= link_to menu.name, {:controller => 'store', :action => 'category_items', :id => menu, :remote => true} %>
+<% end %>

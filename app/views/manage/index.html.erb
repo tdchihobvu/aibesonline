@@ -1,0 +1,16 @@
+<div id="store_admin">
+<h2>Store Management</h2>
+<div class="orders_lookup">
+  <%=link_to "UNPAID ORDERS (#{@unpaid})",{:action => 'unpaid_orders'}, :remote => true %>
+  <%=link_to "UNPROCESSED ORDERS (#{@unprocessed})",{:action => 'unprocessed_orders'}, :remote => true %>
+  <%=link_to "UNDELIVERED ORDERS (#{@undelivered})",{:action => 'undelivered_orders'}, :remote => true %>
+  <%=link_to "UNCOLLECTED ORDERS (#{@uncollected})",{:action => 'uncollected_orders'}, :remote => true %>
+  <%=link_to "REPORTS" %>
+</div>
+<br/>
+<div id="orders_list">
+
+</div>
+</div>
+
+<%#*<div id="modal-box" style="display:none;"></div>%>

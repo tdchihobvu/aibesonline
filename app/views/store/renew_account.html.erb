@@ -1,0 +1,14 @@
+ <div class="category_items_header">
+  <span class="category_title">Forgot your Password or Renew Account.</span>
+</div>
+ <%= form_tag( { :action => :activate_renewal }, { :method => :post }) %>
+  <table style="padding: 10px; width:90%">
+
+  <tr>
+    <td>Enter your email</td>
+    <td>
+      <%= text_field_tag :email, params[:email], :size => '30', :class => 'login_field' %>
+      <%= submit_tag "Send me instructions to renew my Account" %>
+    </td>
+  </tr>
+</table>

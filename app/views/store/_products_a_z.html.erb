@@ -1,0 +1,5 @@
+<div class="products_atoz">
+<% Product::PRODUCTS_ALPHABET.each do |a| %>
+<%=link_to a[0], :action => 'products_by_alphabet', :id => a[1], :remote => true %>
+<% end %>
+</div>

@@ -1,0 +1,9 @@
+<% form_for :order, :url => {:action => 'update_payment', :id => @order} do |f| %>
+  <%= f.error_messages %>
+
+  <div>
+    <%= f.label 'Enter Approval Code' %>
+    <%= f.text_field :trans_code, :size => 20 %>
+    <%= f.submit 'Submit' %>
+  </div>
+<% end %>

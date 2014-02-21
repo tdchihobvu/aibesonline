@@ -1,0 +1,19 @@
+<!--Start of SlideShow-->
+<% @slide1 = GlobalSetting.find_by_config_key("Slide1Url") %>
+<% @slide2 = GlobalSetting.find_by_config_key("Slide2Url") %>
+<% @slide3 = GlobalSetting.find_by_config_key("Slide3Url") %>
+<% @slide4 = GlobalSetting.find_by_config_key("Slide4Url") %>
+<div id="slideshow-panel" >
+<div class="slideholder">
+<div id="sliderFrame">
+<div id="slider" style="text-align: center">
+  <%= image_tag "#{@slide1.config_value}" %>
+  <%= image_tag "#{@slide2.config_value}" %>
+  <%= image_tag "#{@slide3.config_value}" %>
+  <%= image_tag "#{@slide4.config_value}" %>
+</div>
+
+</div>
+</div>
+</div>
+<!--End of Slideshow-->

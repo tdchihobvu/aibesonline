@@ -1,0 +1,27 @@
+<% unless cart.items.empty? %>
+<div class="empty_cart"><marquee direction="right" scrollamount="3"><%= image_tag '/assets/cart.png' %></marquee> <%= pluralize(cart.total_items," item") %> in Your Cart </div>
+<div class="customer_cart">
+<table id="shopping_cart" width="100%">
+<%= render(:partial => "cart_item" , :collection => cart.items) %>
+<tr class="tr-even3">
+  <td colspan="2" class="total">Total (Collection)</td>
+  <td class="total"><b><%= number_to_currency(cart.total_price) %></b></td>
+</tr>
+<tr class="tr-even2">
+  <td colspan="2" class="total">Total (Delivery)</td>
+  <td class="total"><b><%= number_to_currency(cart.total_delivery_price) %></b></td>
+</tr>
+</table>
+
+<table width="100%">
+  <tr>
+    <td><%= button_to "Empty Cart" , :action => :empty_cart %></td>
+    <td align="right"><%= button_to "Checkout" , :action => 'checkout' %></td>
+  </tr>
+</table>
+</div>
+<% else %>
+<div class="empty_cart">(0 items) Your cart is Empty!</div>
+<div class="customer_cart">
+</div>
+<% end %>

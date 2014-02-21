@@ -1,0 +1,30 @@
+<div id="store_view"></div>
+<div id="store-banner"></div>
+<div class="header">
+ <div class="store-menu">
+    <%=link_to 'Movies A - Z', :action => 'products_atoz', :remote => true %>
+    <%= link_to 'Latest Movies', :action => 'latest', :remote => true  %>
+    <%= link_to 'On Promotion', :action => 'on_promotion', :remote => true   %>
+    <%=link_to 'Make a Request', :action => 'customer_requests', :remote => true  %>
+    <%=link_to 'Leave a Comment', :action => 'comments', :remote => true %>
+  
+        <%= form_tag({:action => 'search_ajax', :query => params['query']}, :remote => true, :style => 'display:inline' ) do %>
+            <%= text_field_tag("query", params['query'], :autocomplete => 'off', :size => '', :value => 'search movie', :onfocus=> "this.value='';") %>
+           <span class="search_button">
+              <%= submit_tag "Search" %>
+           </span>
+        <% end %>
+
+    
+  </div>
+    <div id="testdiv"></div>
+  </div>
+<div class="clear"></div>
+<div id="virtual_store">
+     <%= render :partial => 'top_listed_products' %>
+  <div class="clear"></div>
+     <%= render :partial => 'featured_products' %>
+  <div class="clear"></div>
+</div>
+
+

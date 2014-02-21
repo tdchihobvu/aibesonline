@@ -1,0 +1,52 @@
+<div class="category_items_header">
+  <span class="category_title">Enter Your Personal & Contact Details</span>
+</div>
+<p style="background:#DCEEF7; padding: 5px; font-size: 11px; text-align: center; width: 85%; margin: 5px auto ">We respect your privacy. The information you provide here will only be used for the processing of your order.</p>
+
+<div id="saving_order"></div>
+
+<div class="order-form">
+<%= form_tag( { :action => :save_order, }, { :method => :post }) %>
+  <% if @customer_order.errors.any? %>
+    <p style="background:#FAA3A3; padding: 5px; font-size: 11px; text-align: center; width: 85%; margin: 5px auto ">
+      Fields marked in red contain some errors.
+    </p>
+
+  <% end %>
+<table id="new_table">
+  <tr>
+    <td><%=  label :customer_order,'Customer Name' %></td>
+    <td><%= text_field "customer_order","customer_name", "size" => 40 %></td>
+  </tr>
+  <tr>
+    <td><%= label :address_line1, 'Physical Address', :title => 'Enter a specific address if you want your items to be delivered.' %><br/> <p style="font-size: 9px"></p></td>
+    <td><%= text_field "customer_order","address_line1", "size" => 40 %></td>
+  </tr>
+  <tr>
+    <td><%= 'Location/Surburb' %></td>
+    <td><%= text_field "customer_order", "address_line2", "size" => 40 %></td>
+  </tr>
+  <tr>
+    <td><%=  label "customer_order", "city" %></td>
+    <td><%= text_field "customer_order", "city", "size" => 40 %></td>
+  </tr>
+  <tr>
+    <td><%= label "customer_order", "mobile_number" %></td>
+    <td><%= text_field "customer_order", "mobile_no", "size" => 40 %></td>
+  </tr>
+  <tr>
+    <td><%=  label "customer_order",'Choose Option' %></td>
+    <td>
+      <%= radio_button  "customer_order", "delivery", 1 %> Delivery <%= radio_button "customer_order", "delivery", 0 %>Collection
+    </td>
+  </tr>
+  <tr>
+    <td><%= label "customer_order", "payment_gateway_id"%></td>
+    <td><%= select "customer_order", "payment_gateway_id", PaymentGateway.find(:all).collect {|p| [p.name, p.id]}, "size" => 40 %></td>
+  </tr>
+
+</table>
+  <div id="payment_type">
+    <%= render 'ecocash' %>
+  </div>
+</div>

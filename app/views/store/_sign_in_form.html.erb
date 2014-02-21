@@ -1,0 +1,22 @@
+ <%= form_tag( { :action => :login, }, { :method => :post }) %>
+  <table style="padding: 10px;width:100%" cellspacing="10">
+  <tr>
+
+    <td>
+      <label>Email Address</label> <br/>
+      <%= text_field_tag :email, params[:email], :size => '40', :class => 'login_field' %>
+    </td>
+    <td rowspan="4" valign="top"></td>
+  </tr>
+  <tr>
+    <td>
+      <label>Password</label><br/>
+      <%= password_field_tag :password, params[:password], :size => '40', :class => 'login_field' %>
+
+    </td>
+
+  </tr>
+  <tr>
+    <td><%= submit_tag "Sign in" %></td>
+  </tr>
+</table>

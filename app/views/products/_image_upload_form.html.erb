@@ -1,0 +1,5 @@
+<div class="image_uploads">
+<%= form_tag({:action => 'save_uploaded_image', :id => @product.id}, :multipart => true) %>
+<p><label for="upload_file">Select File</label> :
+<%= file_field 'upload', 'datafile' %><%= submit_tag "Upload" %></p>
+</div>

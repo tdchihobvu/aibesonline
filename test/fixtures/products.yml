@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  code: MyString
+  name: MyString
+  price: 9.99
+  quantity: 1
+  description: MyText
+  product_type_id: 1
+  product_category_id: 1
+  product_brand_id: 1
+  sales: 1
+  views: 1
+  on_promotion: false
+  promotion_days: 1
+  unit_vat: 9.99
+  featured: false
+  release_year: MyString
+  name_prefix: MyString
+  top_10: false
+
+two:
+  code: MyString
+  name: MyString
+  price: 9.99
+  quantity: 1
+  description: MyText
+  product_type_id: 1
+  product_category_id: 1
+  product_brand_id: 1
+  sales: 1
+  views: 1
+  on_promotion: false
+  promotion_days: 1
+  unit_vat: 9.99
+  featured: false
+  release_year: MyString
+  name_prefix: MyString
+  top_10: false
