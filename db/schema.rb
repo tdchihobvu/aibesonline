@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140215100308) do
+ActiveRecord::Schema.define(:version => 20140222144849) do
 
   create_table "comments", :force => true do |t|
     t.string   "username"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20140215100308) do
     t.string   "mobile_no"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+    t.string   "email"
   end
 
   create_table "users", :force => true do |t|
@@ -142,7 +143,7 @@ ActiveRecord::Schema.define(:version => 20140215100308) do
     t.string   "encrypted_password"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
   end
