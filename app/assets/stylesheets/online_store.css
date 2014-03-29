@@ -168,3 +168,10 @@ table#myfooter {color: #ffffff; font-size: 11px;}
     text-decoration: underline;
     background: none;
 }
+
+#about_us {padding: 10px;}
+#about_us p {font-size: 12px; margin: 15px; color: #000}
+#about_us .contacts {color:#4285F4}
+#about_us ul li a {text-decoration: none; color: #000}
+#about_us ul li a:visited {text-decoration: none; color: #000}
+

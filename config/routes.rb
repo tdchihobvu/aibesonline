@@ -49,6 +49,7 @@ Blog::Application.routes.draw do
       get :edit_user_account
       get :logout
       get :on_promotion
+      get :about_showtime
       
     end
   end

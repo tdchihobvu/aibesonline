@@ -60,6 +60,10 @@ class StoreController < ApplicationController
     @upcoming_movies = Product.upcoming_movies
   end
 
+  def about_showtime
+    @upcoming_movies = Product.upcoming_movies
+  end
+
   def search_ajax
     @products = Product.products_for_sale
     @product = Product.find(:all,
